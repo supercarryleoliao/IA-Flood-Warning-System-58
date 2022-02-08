@@ -5,19 +5,15 @@
 geographical data.
 
 """
-
+import haversine
 from turtle import distance
-from .utils import sorted_by_key  # noqa
 def stations_by_distance(stations,p):
     """return a list of tuples containing stations and distances"""
     list0=[]
-    tuple0=(0,0,0)
-    for i in range (len(stations)):
-        tuple0[0]=stations[i].name
-        tuple0[1]=stations[i].town
-        coord=stations[i].coord
+    for station in stations:
+        coord=station.coord
         distance=haversine(p,coord)
-        tuple0[2]=distance
+        tuple0=(station.name,station.town,distance)
         list0+=tuple0
     return list0
          
