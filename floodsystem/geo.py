@@ -11,7 +11,7 @@ import haversine
 from .utils import sorted_by_key  # noqa
 
 def stations_by_distance(stations,p):
-    ''''''return a list of tuples containing stations and distances''''''
+    #return a list of tuples containing stations and distances
     list0=[]
     tuple0=(,)
     for i in range (len(stations)):
@@ -22,4 +22,6 @@ def stations_by_distance(stations,p):
         list0+=tuple0
     return list0
          
-def rivers_with_station(stations): #lists all rivers with monitoring stations and returns a dictionary
+def rivers_with_station(stations): #lists all rivers with monitoring stations
+
+    return
