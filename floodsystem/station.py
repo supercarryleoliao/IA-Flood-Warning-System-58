@@ -7,6 +7,9 @@ for manipulating/modifying station data
 """
 
 
+from sklearn.manifold import trustworthiness
+
+
 class MonitoringStation:
     """This class represents a river level monitoring station"""
 
@@ -38,3 +41,18 @@ class MonitoringStation:
         d += "   river:         {}\n".format(self.river)
         d += "   typical range: {}".format(self.typical_range)
         return d
+    def typical_range_consistent(self):
+        """checks the typical high/low range data for consistency."""
+        if self.typical_range[1] >= self.typical_range[0]:
+            return True
+        else:
+            return False
+def inconsistent_typical_range_stations(stations):
+    """given a list of station objects, returns a list of stations that have inconsistent data."""
+    
+    list1=[]
+    for station in stations:
+        if station.typical_range_consistent() :
+            continue
+        list1+=station
+    return list1
