@@ -7,3 +7,4 @@ geographical data.
 """
 
 from .utils import sorted_by_key  # noqa
+def rivers_with_station(stations):
