@@ -5,7 +5,7 @@ from floodsystem.utils import sorted_by_key
 def run():
     """"return a list of stations with 10km of CCambridge city centre"""
     centre_coord=(52.2053,0.1218)
-    stations=build_station_list
+    stations=build_station_list()
     r=10
     list2=[]
     list1=stations_within_radius(stations,centre_coord,r)
