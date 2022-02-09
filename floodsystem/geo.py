@@ -45,16 +45,18 @@ def stations_by_river(stations): #returns dictionary using river name as key and
         riverDict[river] = stationList
     return riverDict
 
-def rivers_by_station_number(stations, N): #creates and sorts list of rivers with number of stations, then takes the value of the Nth entry and appends all entries lower than that value
+def rivers_by_station_number(stations, N): #creates and sorts list of rivers by number of stations, then takes the value of the Nth entry and appends all entries lower than that value to return list
     numberList = list()
     rivers = stations_by_river(stations)
     for r in rivers:
-        numberList.append(tuple(r, len(rivers[r])))
-    sortedList = sorted(numberList, key=lambda x: x[1])
+        listEntry = (r, len(rivers[r]))
+        numberList.append(listEntry)
+    sortedList = sorted(numberList, key=lambda x: x[1], reverse=True)
     firstN = list()
-    valueN = sortedList[N-1, 1]
+    tupleN = sortedList[N-1]
+    valueN = tupleN[1] #[x[1] for x in sortedList] sortedList[N-1, 1]
     for x in sortedList:
-        if x[1] <= valueN:
+        if x[1] >= valueN:
             firstN.append(x)
         else:
             break
