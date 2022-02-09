@@ -31,8 +31,7 @@ def stations_within_radius(stations, centre, r):
 def rivers_with_station(stations): #lists all rivers with monitoring stations
     stationList = set()
     for i in stations:
-        if i['river'] not in stationList:
-            stationList.append(i['river'])
+        stationList.add(i['river'])
     return stationList
 
 def stations_by_river(stations): #returns dictionary using river name as key and list of stations
