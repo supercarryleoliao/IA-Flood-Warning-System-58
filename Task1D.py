@@ -6,8 +6,9 @@ from floodsystem.geo import stations_by_river
 
 stations = build_station_list()
 rivers = rivers_with_station(stations)
-rivers.sort()
-print(len(rivers) + " stations. First 10: " + rivers[-10:])
+rivers = tuple(rivers)
+rivers = sorted(rivers)
+print("There are " + len(rivers) + " rivers. First 10: " + rivers[-10:])
 
 riverStations = stations_by_river(stations)
 print("River Aire: " + riverStations['River Aire'])
