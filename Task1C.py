@@ -7,12 +7,10 @@ def run():
     centre_coord=(52.2053,0.1218)
     stations=build_station_list()
     r=10
-    list2=[]
+    list1=[]
     list1=stations_within_radius(stations,centre_coord,r)
-    for station in list1:
-        list2+=station[0]
-    list2.sort()
-    return list2
+    list1.sort()
+    return list1
 if __name__ == "__main__":
     print("*** Task 1C: CUED Part IA Flood Warning System ***")
-    run()
+    run=()
