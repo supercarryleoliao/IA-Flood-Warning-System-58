@@ -31,7 +31,7 @@ def stations_within_radius(stations, centre, r):
 def rivers_with_station(stations): #lists all rivers with monitoring stations
     stationList = set()
     for i in stations:
-        stationList.add(i['river'])
+        stationList.add(station.river)
     return stationList
 
 def stations_by_river(stations): #returns dictionary using river name as key and list of stations
@@ -40,7 +40,7 @@ def stations_by_river(stations): #returns dictionary using river name as key and
         stationList = list()
         for i in stations:
             if i['river'] == river:
-                stationList.append(i['name'])
+                stationList.append(station.name)
         riverDict[river] = stationList
     return riverDict
 
@@ -48,7 +48,7 @@ def rivers_by_station_number(stations, N):
     numberList = list()
     rivers = stations_by_river(stations)
     for r in rivers:
-        numberList.append(tuple(r, len(rivers['r'])))
+        numberList.append(tuple(r, len(rivers[r])))
     sortedList = sorted(numberList, key=lambda x: x[1])
     firstN = list()
     valueN = sortedList[N-1, 1]
