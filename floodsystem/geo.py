@@ -27,13 +27,14 @@ def stations_within_radius(stations, centre, r):
             list1+=station
     return list1
 
-         
+#Task 1D function:
 def rivers_with_station(stations): #lists all rivers with monitoring stations
     stationList = set()
     for i in stations:
         stationList.add(i.river)
     return stationList
 
+#Task 1E functions:
 def stations_by_river(stations): #returns dictionary using river name as key and list of stations
     riverDict = dict()
     for river in rivers_with_station(stations):
@@ -44,7 +45,7 @@ def stations_by_river(stations): #returns dictionary using river name as key and
         riverDict[river] = stationList
     return riverDict
 
-def rivers_by_station_number(stations, N):
+def rivers_by_station_number(stations, N): #creates and sorts list of rivers with number of stations, then takes the value of the Nth entry and appends all entries lower than that value
     numberList = list()
     rivers = stations_by_river(stations)
     for r in rivers:
