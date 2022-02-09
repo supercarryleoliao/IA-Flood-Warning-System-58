@@ -32,5 +32,15 @@ def rivers_with_station(stations): #lists all rivers with monitoring stations
     stationList = set()
     for i in stations:
         if i['river'] not in stationList:
-            stationList += i['river']
+            stationList.append(i['river'])
     return stationList
+
+def stations_by_river(stations): #returns dictionary using river name as key and list of stations
+    riverDict = dict()
+    for river in rivers_with_station(stations):
+        stationList = list()
+        for i in stations:
+            if i['river'] == river:
+                stationList.append(i['name'])
+        riverDict[river] = stationList
+    return riverDict
