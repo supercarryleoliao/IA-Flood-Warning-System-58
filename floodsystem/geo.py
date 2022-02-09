@@ -43,3 +43,18 @@ def stations_by_river(stations): #returns dictionary using river name as key and
                 stationList.append(i['name'])
         riverDict[river] = stationList
     return riverDict
+
+def rivers_by_station_number(stations, N):
+    numberList = list()
+    rivers = stations_by_river(stations)
+    for r in rivers:
+        numberList.append(tuple(r, len(rivers['r'])))
+    sortedList = sorted(numberList, key=lambda x: x[1])
+    firstN = list()
+    valueN = sortedList[N-1, 1]
+    for x in sortedList:
+        if x[1] <= valueN:
+            firstN.append(x)
+        else:
+            break
+    return firstN
