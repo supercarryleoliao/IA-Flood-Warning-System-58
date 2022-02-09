@@ -14,14 +14,14 @@ def stations_by_distance(stations,p):
         coord=station.coord
         distance=haversine(p,coord)
         tuple0=(station.name,station.town,distance)
-        list0+=tuple0
+        list0.append(tuple0)
     return list0
 def stations_within_radius(stations, centre, r):
     """"return a list of stations within radius r"""
     list1=[]
     for station in stations:
         if haversine(centre,station.coord) <= r:
-            list1+=station
+            list1.append(station.name)
     return list1
 
          
