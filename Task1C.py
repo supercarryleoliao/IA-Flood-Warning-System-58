@@ -13,4 +13,5 @@ def run():
     return list1
 if __name__ == "__main__":
     print("*** Task 1C: CUED Part IA Flood Warning System ***")
-    run=()
+    x=run()
+    print(x)
