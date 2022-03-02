@@ -11,4 +11,7 @@ def run():
          dates, levels = fetch_measure_levels(
              i.measure_id, dt=datetime.timedelta(days=dt))
          plot_water_levels(i.name,dates,levels)
+if __name__ == "__main__":
+    print("*** Task 2E: CUED Part IA Flood Warning System ***")
+    run()
         
