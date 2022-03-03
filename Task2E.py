@@ -1,10 +1,11 @@
 import datetime
-
+from floodsystem.stationdata import build_station_list
 from floodsystem.datafetcher import fetch_measure_levels
 from floodsystem.stationdata import plot_water_levels
 from floodsystem.flood import stations_highest_rel_level
 dt=10
 num_stations=6
+stations=build_station_list()
 def run():
      list_of_top5=stations_highest_rel_level(stations, 5)
      for i in list_of_top5:
