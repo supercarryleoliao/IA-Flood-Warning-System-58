@@ -9,12 +9,12 @@ def warning(stations):
             level = "Inconclusive"
         elif s.relative_water_level > 1 and trend > 1: #update this once Leo's code arrives for trend calculations
             level = "Severe"
-            severeList.append(s.name)
+            severeList.append(s.town)
         elif s.relative_water_level > 1 or trend > 1: #update this once Leo's code arrive for trend calculations
             level = "High"
         elif s. relative_water_level > 0.7:
             level = "Moderate"
         else:
             level = "Low"
-        levelList.append(s.name, s.relative_water_level, level)
+        levelList.append(s.town, s.relative_water_level, level)
     return severeList
