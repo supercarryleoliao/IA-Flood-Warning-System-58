@@ -8,7 +8,8 @@ JSON objects fetched from the Internet and
 
 from . import datafetcher
 from .station import MonitoringStation
-
+import matplotlib.pyplot as plt
+from datetime import datetime, timedelta
 
 def build_station_list(use_cache=True):
     """Build and return a list of all river level monitoring stations
@@ -87,3 +88,19 @@ def update_water_levels(stations):
         if station.measure_id in measure_id_to_value:
             if isinstance(measure_id_to_value[station.measure_id], float):
                 station.latest_level = measure_id_to_value[station.measure_id]
+def plot_water_levels(station, dates, levels):
+    """ displays a plot (using Matplotlib) of the water level data against time for a station, and include on the plot lines for the typical low and high levels. """
+    name=station.name
+    # Plot
+    plt.plot(dates, levels)
+
+    # Add axis labels, rotate date labels and add plot title
+    plt.xlabel('date')
+    plt.ylabel('water level (m)')
+    plt.xticks(rotation=45);
+    plt.title(name)
+
+    # Display plot
+    plt.tight_layout()  # This makes sure plot does not cut off date labels
+
+    plt.show()
