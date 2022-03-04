@@ -3,6 +3,7 @@ import matplotlib
 from scipy.misc import derivative
 import numpy as np
 from datetime import date
+
 def trend(poly, d0):
     return derivative(poly, matplotlib.dates.date2num(date.today()))
 
@@ -13,10 +14,10 @@ def warning(stations):
         level = ""
         if s.typical_range_consistent() == False or s.latest_level == None:
             level = "Inconclusive"
-        elif s.relative_water_level > 1 and trend() > 0: #update this once Leo's code arrives for trend calculations
+        elif s.relative_water_level > 1 and trend(polyfit(dates, levels, 4)) > 0: #updated
             level = "Severe"
             severeList.append(s.town)
-        elif s.relative_water_level > 1 or trend > 0: #update this once Leo's code arrives for trend calculations
+        elif s.relative_water_level > 1 or trend(polyfit(dates, levels, 4)) > 0: #updated
             level = "High"
         elif s.relative_water_level > 0.8:
             level = "Moderate"
