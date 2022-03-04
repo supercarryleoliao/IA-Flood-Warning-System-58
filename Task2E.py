@@ -4,7 +4,7 @@ from floodsystem.datafetcher import fetch_measure_levels
 from floodsystem.stationdata import plot_water_levels
 from floodsystem.flood import stations_highest_rel_level
 dt=10
-num_stations=6
+num_stations=5
 stations=build_station_list()
 def run():
      list_of_top5=stations_highest_rel_level(stations, 5)
