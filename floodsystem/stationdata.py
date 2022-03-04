@@ -5,7 +5,7 @@
 JSON objects fetched from the Internet and
 
 """
-
+import matplotlib
 from . import datafetcher
 from .station import MonitoringStation
 import matplotlib.pyplot as plt
@@ -91,9 +91,15 @@ def update_water_levels(stations):
 def plot_water_levels(station, dates, levels):
     """ displays a plot (using Matplotlib) of the water level data against time for a station, and include on the plot lines for the typical low and high levels. """
     name=station.name
+    typical_range=station.typical_range
     # Plot
     plt.plot(dates, levels)
-
+    x = matplotlib.dates.date2num(dates)
+    high_value=[typical_range[1]]*len(x)
+    low_value=[typical_range[0]]*len(x)
+    print(low_value)
+    plt.plot(x,high_value,linestyle="dotted",color='r',label="$typical_high$")
+    plt.plot(x,low_value,linestyle="dotted",color='g',label="$typical_low$")
     # Add axis labels, rotate date labels and add plot title
     plt.xlabel('date')
     plt.ylabel('water level (m)')
